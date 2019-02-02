@@ -13,17 +13,23 @@ class ProyectosA : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_proyectos)
 
-
+        // esta variable identifica la listView de la actividad
         val listaM: ListView = findViewById(R.id.lista)
 
+        // Esta matriz almacena los objetos que se mostrarán  en la listView
         val matriz = arrayOf("Lab 2 de Android", "Este proyecto (Android)", "Hoja de trabajo 1 de Estructuras")
 
 
+        //El adapter sirve para conectar la matriz con el listView
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matriz)
         listaM.adapter = adapter
 
         listaM.isClickable = true
+
         var a :String = ""
+
+        // Este metodo asigna un String url dependiendo dle objeto que se seleccione en la lista
+        // Este URL se manda a la clase MyApplication para que desde alli pueda irse a la actividad de webView
         listaM.onItemClickListener = AdapterView.OnItemClickListener{ arg0, arg1, position, arg3 ->
             if (position==0){
                 a = "https://github.com/marcofuentes05/Moviles/tree/master/Lab2"
@@ -33,42 +39,10 @@ class ProyectosA : AppCompatActivity() {
             }else{
                 a = "https://github.com/marcofuentes05/EstructuraDeDatos/tree/master/HT1"
             }
-
             (this.application as MyApplication).setUrl(a)
-
             val intent = Intent (this, WebActivity::class.java)
             startActivity(intent)
         }
 
     }
-
-
-
-
-    /**override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_2)
-
-        val matriz = arrayOf("Hamburguesa","Papas","Gaseosas","Pizza","Dulces","Ensalada")
-
-        val lista : ListView = findViewById(R.id.listaMenu)
-
-        val adapter : ArrayAdapter<String> = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,matriz)
-        lista.adapter = adapter
-
-
-        lista.isClickable = true
-        lista.onItemClickListener = AdapterView.OnItemClickListener { arg0, arg1, position, arg3 ->
-            val s: MenuOrderImp = (this.application as MyAplication).getOrden()
-            s.add(matriz.get(position))
-
-            val toast1: Toast = Toast.makeText(applicationContext,"Se ha agregado '"+matriz.get(position)+"' a tu orden", Toast.LENGTH_LONG)
-            toast1.show()
-
-        }
-
-    }**/
-
-
 }
-

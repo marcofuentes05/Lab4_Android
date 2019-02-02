@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class DireccionActivity : AppCompatActivity(), OnMapReadyCallback {
 
+    //Esta variable representa el objeto mapa
     private lateinit var mMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,13 +35,14 @@ class DireccionActivity : AppCompatActivity(), OnMapReadyCallback {
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
+
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
+        // Agrega un marcador en la ciudad de Guatemala y mueve la cámara
         val guatemala = LatLng(14.62,-90.53)
-        val sydney = LatLng(-34.0, 151.0)
+
         mMap.addMarker(MarkerOptions().position(guatemala).title("Marker in Guatemala"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(guatemala))
 
     }
 }

@@ -14,12 +14,11 @@ class WebActivity : AppCompatActivity() {
         val myWebView = WebView(this)
         setContentView(myWebView)
 
-
+        //esta variable almacena la URL del repositorio del proyecto que se seleccionó en la actividad ProyectosA.
         var url : String = (this.application as MyApplication).getUrl()
 
+        //Se carga la URL
         myWebView.loadUrl(url)
         myWebView.webViewClient = WebViewClient()
     }
-
-
 }
