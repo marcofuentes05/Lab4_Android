@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Lab 4</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="marco_fuentes">Marco Fuentes</string>
+    <string name="todo">TODO</string>
+    <string name="title_activity_direccion">Map</string>
+    <string name="proyectos">Proyectos</string>
+</resources>
